@@ -1,8 +1,8 @@
 Attribute VB_Name = "Module1"
-'¸ñÀû ¿ä¾à
-'I¿­(¹æ¹®ÄÚµå) ±âÁØÀ¸·Î °°Àº ±×·ì ³»¿¡¼­ C¿­(ÀÚÀü°Å¹øÈ£)ÀÌ Áßº¹µÉ °æ¿ì
-'¸Ç Ã³À½ ³ªÅ¸³­ Çà¸¸ Á¤»ó, ¡æ ¾Æ·¡¿¡ ¹İº¹µÈ ÇàÀº L¿­¿¡ "°¡Â¥"¶ó°í Ç¥½ÃÇÏ±â
-'(Sheet1~Sheet5 ÀüÃ¼ ¼øÈ¸)
+'ëª©ì  ìš”ì•½
+'Iì—´(ë°©ë¬¸ì½”ë“œ) ê¸°ì¤€ìœ¼ë¡œ ê°™ì€ ê·¸ë£¹ ë‚´ì—ì„œ Cì—´(ìì „ê±°ë²ˆí˜¸)ì´ ì¤‘ë³µë  ê²½ìš°
+'ë§¨ ì²˜ìŒ ë‚˜íƒ€ë‚œ í–‰ë§Œ ì •ìƒ, â†’ ì•„ë˜ì— ë°˜ë³µëœ í–‰ì€ Lì—´ì— "ê°€ì§œ"ë¼ê³  í‘œì‹œí•˜ê¸°
+'(Sheet1~Sheet5 ì „ì²´ ìˆœíšŒ)
 
 Sub CountUniqueBikesByVisitCode_AllSheets()
     Dim ws As Worksheet
@@ -20,7 +20,7 @@ Sub CountUniqueBikesByVisitCode_AllSheets()
         
         lastRow = ws.Cells(ws.Rows.Count, "I").End(xlUp).Row
         
-        ' 1. ¹æ¹®ÄÚµå + ÀÚÀü°Å¹øÈ£ Á¶ÇÕÀ¸·Î Áßº¹ Á¦°Å
+        ' 1. ë°©ë¬¸ì½”ë“œ + ìì „ê±°ë²ˆí˜¸ ì¡°í•©ìœ¼ë¡œ ì¤‘ë³µ ì œê±°
         For i = 2 To lastRow
             visitCode = ws.Cells(i, "I").Value
             bikeID = ws.Cells(i, "C").Value
@@ -39,7 +39,7 @@ Sub CountUniqueBikesByVisitCode_AllSheets()
             End If
         Next i
         
-        ' 2. °¢ Çà¿¡ ÀÚÀü°Å´ë¼ö Ã¤¿ì±â
+        ' 2. ê° í–‰ì— ìì „ê±°ëŒ€ìˆ˜ ì±„ìš°ê¸°
         For i = 2 To lastRow
             visitCode = ws.Cells(i, "I").Value
             If visitCountDict.exists(visitCode) Then
@@ -48,5 +48,5 @@ Sub CountUniqueBikesByVisitCode_AllSheets()
         Next i
     Next sheetIndex
     
-    MsgBox "Sheet1 ~ Sheet5 ¹æ¹®ÄÚµåº° ÀÚÀü°Å´ë¼ö Áı°è ¿Ï·á!", vbInformation
+    MsgBox "Sheet1 ~ Sheet5 ë°©ë¬¸ì½”ë“œë³„ ìì „ê±°ëŒ€ìˆ˜ ì§‘ê³„ ì™„ë£Œ!", vbInformation
 End Sub
