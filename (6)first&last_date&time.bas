@@ -1,9 +1,9 @@
 Attribute VB_Name = "Module1"
-'¸ñÀû ¿ä¾à
-'I¿­ (¹æ¹®ÄÚµå)º°·Î ±×·ìÀ» ³ª´©°í, °¢ ¹æ¹®ÄÚµå ±×·ì¿¡¼­:
-'J¿­ = 1ÀÎ ÇàÀÇ H¿­ °ªÀ» M¿­¿¡ ³Ö±â (Ã¹ ½Ã°£)
-' ±× ¹æ¹®ÄÚµå ³»¿¡¼­ ¸¶Áö¸· ¼ø¹ø(J¿­ÀÇ ÃÖ´ë°ª)ÀÎ ÇàÀÇ H¿­ °ªÀ» N¿­¿¡ ³Ö±â (¸¶Áö¸· ½Ã°£)
-'±âÁØÀº Sheet1 ~ Sheet5 ÀüºÎ¿¡ ´ëÇØ Àû¿ëÇÕ´Ï´Ù.
+'ëª©ì  ìš”ì•½
+'Iì—´ (ë°©ë¬¸ì½”ë“œ)ë³„ë¡œ ê·¸ë£¹ì„ ë‚˜ëˆ„ê³ , ê° ë°©ë¬¸ì½”ë“œ ê·¸ë£¹ì—ì„œ:
+'Jì—´ = 1ì¸ í–‰ì˜ Hì—´ ê°’ì„ Mì—´ì— ë„£ê¸° (ì²« ì‹œê°„)
+' ê·¸ ë°©ë¬¸ì½”ë“œ ë‚´ì—ì„œ ë§ˆì§€ë§‰ ìˆœë²ˆ(Jì—´ì˜ ìµœëŒ€ê°’)ì¸ í–‰ì˜ Hì—´ ê°’ì„ Nì—´ì— ë„£ê¸° (ë§ˆì§€ë§‰ ì‹œê°„)
+'ê¸°ì¤€ì€ Sheet1 ~ Sheet5 ì „ë¶€ì— ëŒ€í•´ ì ìš©í•©ë‹ˆë‹¤.
 
 
 Sub SetFirstAndLastTimePerVisitCode_AllSheets()
@@ -22,7 +22,7 @@ Sub SetFirstAndLastTimePerVisitCode_AllSheets()
         
         lastRow = ws.Cells(ws.Rows.Count, "I").End(xlUp).Row
         
-        ' 1. ¹æ¹®ÄÚµåº° Ã¹/³¡ row À§Ä¡ ÀúÀå
+        ' 1. ë°©ë¬¸ì½”ë“œë³„ ì²«/ë row ìœ„ì¹˜ ì €ì¥
         For i = 2 To lastRow
             visitCode = ws.Cells(i, "I").Value
             
@@ -34,7 +34,7 @@ Sub SetFirstAndLastTimePerVisitCode_AllSheets()
                     firstRowDict(visitCode) = i
                 End If
                 
-                ' ¹æ¹®ÄÚµåº° °¡Àå Å« ¼ø¹øÀ» Ã£±â À§ÇØ °è¼Ó °»½Å
+                ' ë°©ë¬¸ì½”ë“œë³„ ê°€ì¥ í° ìˆœë²ˆì„ ì°¾ê¸° ìœ„í•´ ê³„ì† ê°±ì‹ 
                 If Not lastRowDict.exists(visitCode) Then
                     lastRowDict(visitCode) = i
                 ElseIf ws.Cells(i, "J").Value > ws.Cells(lastRowDict(visitCode), "J").Value Then
@@ -43,7 +43,7 @@ Sub SetFirstAndLastTimePerVisitCode_AllSheets()
             End If
         Next i
         
-        ' 2. ÇØ´ç Çà¿¡ H¿­ °ªÀ» M/N¿­¿¡ ÀÔ·Â
+        ' 2. í•´ë‹¹ í–‰ì— Hì—´ ê°’ì„ M/Nì—´ì— ì…ë ¥
         Dim key As Variant
         For Each key In firstRowDict.Keys
             Dim firstRow As Long, lastRowNum As Long
@@ -55,5 +55,5 @@ Sub SetFirstAndLastTimePerVisitCode_AllSheets()
         Next key
     Next sheetIndex
     
-    MsgBox "Ã¹/¸¶Áö¸· ½Ã°£ ±â·Ï ¿Ï·á!", vbInformation
+    MsgBox "ì²«/ë§ˆì§€ë§‰ ì‹œê°„ ê¸°ë¡ ì™„ë£Œ!", vbInformation
 End Sub
