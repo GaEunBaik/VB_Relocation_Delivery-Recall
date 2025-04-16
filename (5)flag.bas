@@ -1,8 +1,8 @@
 Attribute VB_Name = "Module1"
-'¸ñÀû ¿ä¾à
-'I¿­(¹æ¹®ÄÚµå) ±âÁØÀ¸·Î °°Àº ±×·ì ³»¿¡¼­ C¿­(ÀÚÀü°Å¹øÈ£)ÀÌ Áßº¹µÉ °æ¿ì
-'¸Ç Ã³À½ ³ªÅ¸³­ Çà¸¸ Á¤»ó, ¡æ ¾Æ·¡¿¡ ¹İº¹µÈ ÇàÀº L¿­¿¡ "°¡Â¥"¶ó°í Ç¥½ÃÇÏ±â
-'(Sheet1~Sheet5 ÀüÃ¼ ¼øÈ¸)
+'ëª©ì  ìš”ì•½
+'Iì—´(ë°©ë¬¸ì½”ë“œ) ê¸°ì¤€ìœ¼ë¡œ ê°™ì€ ê·¸ë£¹ ë‚´ì—ì„œ Cì—´(ìì „ê±°ë²ˆí˜¸)ì´ ì¤‘ë³µë  ê²½ìš°
+'ë§¨ ì²˜ìŒ ë‚˜íƒ€ë‚œ í–‰ë§Œ ì •ìƒ, â†’ ì•„ë˜ì— ë°˜ë³µëœ í–‰ì€ Lì—´ì— "ê°€ì§œ"ë¼ê³  í‘œì‹œí•˜ê¸°
+'(Sheet1~Sheet5 ì „ì²´ ìˆœíšŒ)
 
 Sub MarkFakeBikesInAllSheets()
     Dim ws As Worksheet
@@ -26,14 +26,14 @@ Sub MarkFakeBikesInAllSheets()
                 key = visitCode & "|" & bikeID
                 
                 If seenDict.exists(key) Then
-                    ws.Cells(i, "L").Value = "°¡Â¥"
+                    ws.Cells(i, "L").Value = "ê°€ì§œ"
                 Else
                     seenDict.Add key, True
-                    ws.Cells(i, "L").ClearContents ' È¤½Ã ±âÁ¸¿¡ °¡Â¥°¡ ÀÖÀ¸¸é Áö¿ò
+                    ws.Cells(i, "L").ClearContents ' í˜¹ì‹œ ê¸°ì¡´ì— ê°€ì§œê°€ ìˆìœ¼ë©´ ì§€ì›€
                 End If
             End If
         Next i
     Next sheetIndex
     
-    MsgBox "¸ğµç ½ÃÆ® Ã³¸® ¿Ï·áµÇ¾ú½À´Ï´Ù!", vbInformation
+    MsgBox "ëª¨ë“  ì‹œíŠ¸ ì²˜ë¦¬ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤!", vbInformation
 End Sub
