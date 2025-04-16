@@ -1,12 +1,12 @@
 Attribute VB_Name = "Module1"
-' Sheet1ºÎÅÍ Sheet5±îÁö ÀÚµ¿À¸·Î µ¹¸®¸é¼­, ¹æ¹®ÄÚµå(A0000001 ¡æ A0000002 ¡æ ...)¸¦ ¿¬¼ÓÀûÀ¸·Î ÀÌ¾îºÙÀÌ±â
-' Sheet1ºÎÅÍ 5±îÁö DÄÃ·³À» ±âÁØÀ¸·Î HÄÃ·³ÀÌ 30ºĞ ÀÌ»óÀÏ ¶§ IÄÃ·³¿¡ ¹æ¹®ÄÚµå A0000001ºÎÅÍ »ı¼º
+' Sheet1ë¶€í„° Sheet5ê¹Œì§€ ìë™ìœ¼ë¡œ ëŒë¦¬ë©´ì„œ, ë°©ë¬¸ì½”ë“œ(A0000001 â†’ A0000002 â†’ ...)ë¥¼ ì—°ì†ì ìœ¼ë¡œ ì´ì–´ë¶™ì´ê¸°
+' Sheet1ë¶€í„° 5ê¹Œì§€ Dì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ Hì»¬ëŸ¼ì´ 30ë¶„ ì´ìƒì¼ ë•Œ Iì»¬ëŸ¼ì— ë°©ë¬¸ì½”ë“œ A0000001ë¶€í„° ìƒì„±
 
 Sub GenerateVisitCodesAcrossSheets()
     Dim ws As Worksheet
     Dim sheetIndex As Integer
     Dim currentCodeIndex As Long
-    currentCodeIndex = 1 ' A0000001ºÎÅÍ ½ÃÀÛ
+    currentCodeIndex = 1 ' A0000001ë¶€í„° ì‹œì‘
     
     For sheetIndex = 1 To 5
         Set ws = ThisWorkbook.Sheets("Sheet" & sheetIndex)
@@ -31,12 +31,12 @@ Sub GenerateVisitCodesAcrossSheets()
             currLocation = ws.Cells(i, "D").Value
             
             If i = 2 And sheetIndex = 1 Then
-                ' Sheet1ÀÇ Ã¹ Çà
+                ' Sheet1ì˜ ì²« í–‰
                 ws.Cells(i, "I").Value = visitCode
                 prevTime = currTime
                 prevLocation = currLocation
             ElseIf i = 2 Then
-                ' ´Ù¸¥ ½ÃÆ®ÀÇ Ã¹ Çà
+                ' ë‹¤ë¥¸ ì‹œíŠ¸ì˜ ì²« í–‰
                 ws.Cells(i, "I").Value = visitCode
                 prevTime = currTime
                 prevLocation = currLocation
