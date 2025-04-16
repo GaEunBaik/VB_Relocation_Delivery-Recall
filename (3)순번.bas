@@ -1,5 +1,5 @@
 Attribute VB_Name = "Module1"
-'Sheet1ºÎÅÍ Sheet5±îÁö ¼øÈ¸ÇÏ¸ç ¹æ¹®ÄÚµåº° ¼ø¹ø ³Ö±â (J¿­)
+'Sheet1ë¶€í„° Sheet5ê¹Œì§€ ìˆœíšŒí•˜ë©° ë°©ë¬¸ì½”ë“œë³„ ìˆœë²ˆ ë„£ê¸° (Jì—´)
 
 Sub AssignSequenceByVisitCode()
     Dim ws As Worksheet
